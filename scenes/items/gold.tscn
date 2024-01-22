@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://bugy5y5msq73q"]
+
+[ext_resource type="Texture2D" uid="uid://uhbb5k888jvq" path="res://assets/coin/coin.png" id="1_6xtch"]
+[ext_resource type="Script" path="res://scenes/items/gold.gd" id="1_o6lk3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_112d7"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30wb4"]
+atlas = ExtResource("1_6xtch")
+region = Rect2(0, 25, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw54t"]
+atlas = ExtResource("1_6xtch")
+region = Rect2(200, 25, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtqpf"]
+atlas = ExtResource("1_6xtch")
+region = Rect2(400, 25, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhqmp"]
+atlas = ExtResource("1_6xtch")
+region = Rect2(600, 25, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6soir"]
+atlas = ExtResource("1_6xtch")
+region = Rect2(800, 25, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsou7"]
+atlas = ExtResource("1_6xtch")
+region = Rect2(1000, 25, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipcwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30wb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw54t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtqpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhqmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6soir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsou7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Gold" type="Area2D"]
+script = ExtResource("1_o6lk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_112d7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.19209e-07, 7.10543e-15)
+scale = Vector2(0.06625, 0.06625)
+sprite_frames = SubResource("SpriteFrames_ipcwg")
+autoplay = "default"
+frame_progress = 0.649969
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
